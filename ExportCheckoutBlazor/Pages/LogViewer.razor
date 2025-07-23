@@ -1,0 +1,27 @@
+@page "/log"
+@using System.IO
+@inject IWebHostEnvironment Env
+
+<h3>Export Log</h3>
+
+@if (LogContent == null)
+{
+    <p><em>No log file found.</em></p>
+}
+else
+{
+    <pre style="white-space: pre-wrap">@LogContent</pre>
+}
+
+@code {
+    private string? LogContent;
+
+    protected override void OnInitialized()
+    {
+        var logPath = Path.Combine(Env.ContentRootPath, "Logs", "ExportCheckoutReport.log");
+        if (File.Exists(logPath))
+        {
+            LogContent = File.ReadAllText(logPath);
+        }
+    }
+}
