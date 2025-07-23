@@ -1,0 +1,198 @@
+﻿@page "/e"
+@using NDAProcesses.Services
+@inject ExportService ExportSvc
+
+<h3>Generate Checkout Report</h3>
+
+<!-- 1) Columns selection (unchanged) -->
+<div class="mb-3">
+    <label class="form-label">Select Columns:</label>
+    <div>
+        @foreach (var col in AvailableCols)
+        {
+            <div class="form-check form-check-inline">
+                <input class="form-check-input"
+                       type="checkbox"
+                       id="@($"chk_{col.NameSql}")"
+                       @bind="col.IsSelected" />
+                <label class="form-check-label"
+                       for="@($"chk_{col.NameSql}")">
+                    @col.Label
+                </label>
+            </div>
+        }
+    </div>
+</div>
+
+<!-- 2) Recipients: checkboxes instead of dropdown -->
+<div class="mb-3">
+    <label class="form-label">Pick recipients:</label>
+    <div>
+        @foreach (var email in PresetEmailOptions)
+        {
+            <div class="form-check">
+                <input class="form-check-input"
+                       type="checkbox"
+                       id="@($"chk_recipient_{email}")"
+                       @bind="RecipientSelections[email]" />
+                <label class="form-check-label"
+                       for="@($"chk_recipient_{email}")">
+                    @email
+                </label>
+            </div>
+        }
+        <div class="form-check">
+            <input class="form-check-input"
+                   type="checkbox"
+                   id="chk_recipient_Other"
+                   @bind="IsOtherSelected" />
+            <label class="form-check-label"
+                   for="chk_recipient_Other">
+                Other
+            </label>
+        </div>
+    </div>
+</div>
+
+<!-- 3) Show custom-email box only if Other is checked -->
+@if (IsOtherSelected)
+{
+    <div class="mb-3">
+        <label for="customEmail" class="form-label">Enter additional email:</label>
+        <input id="customEmail"
+               type="email"
+               class="form-control"
+               @bind="CustomEmail"
+               placeholder="you@@ntnanderson.com" />
+    </div>
+}
+
+<!-- 4) Days back (unchanged) -->
+<div class="mb-3">
+    <label for="daysBack" class="form-label">Days back:</label>
+    <input id="daysBack"
+           type="number"
+           min="1"
+           class="form-control"
+           @bind="DaysBack" />
+    <small class="form-text text-muted">
+        How many days of data to include.
+    </small>
+</div>
+
+<!-- 5) Generate button -->
+<button class="btn btn-primary" @onclick="Run" disabled="@IsRunning">
+    @if (IsRunning)
+    {
+        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+        <span class="visually-hidden">Loading...</span>
+    }
+    else
+    {
+        <text>Generate &amp; Email</text>
+    }
+</button>
+
+<!-- 6) Progress & result -->
+@if (IsRunning)
+{
+    <div class="mt-3">
+        <div class="progress">
+            <div class="progress-bar progress-bar-striped progress-bar-animated"
+                 style="width:@ProgressPercent%"></div>
+        </div>
+        <p class="mt-2">@LoadingMessage</p>
+    </div>
+}
+else if (!string.IsNullOrEmpty(Message))
+{
+    <div class="alert alert-info mt-3">@Message</div>
+}
+
+@code {
+    // preset list
+    List<string> PresetEmailOptions { get; set; } = new()
+  {
+    "ssingh@ntnanderson.com",
+    "nda2-toolcrib@ntnanderson.com"
+    // "aswallow@ntnanderson.com",
+    // "LNicholson@ntnanderson.com",
+    // "shickman@ntnanderson.com"
+  };
+
+    // binds for each preset email
+    Dictionary<string, bool> RecipientSelections { get; set; }
+    bool IsOtherSelected { get; set; }
+    string CustomEmail { get; set; }
+
+    int DaysBack { get; set; } = 1;
+    bool IsRunning;
+    int ProgressPercent;
+    string LoadingMessage;
+    string Message;
+
+    List<ColumnDef> AvailableCols = new()
+  {
+    new ColumnDef { NameSql="id",           Label="ID",            IsSelected=true },
+    new ColumnDef { NameSql="QRCODE",       Label="Part#",        IsSelected=true },
+    new ColumnDef { NameSql="[DESC]",       Label="Desc",         IsSelected=true },
+    new ColumnDef { NameSql="QTY",          Label="Quantity",     IsSelected=true },
+    new ColumnDef { NameSql="BIN",          Label="Loc",          IsSelected=true },
+    new ColumnDef { NameSql="DEPT",         Label="Department",   IsSelected=true },
+    new ColumnDef { NameSql="USER_NAME",    Label="User Name",    IsSelected=true },
+    new ColumnDef { NameSql="checkout_time",Label="Checkout Time",IsSelected=true }
+  };
+
+    protected override void OnInitialized()
+    {
+        // initialize all preset selections to false
+        RecipientSelections = PresetEmailOptions.ToDictionary(e => e, _ => false);
+        base.OnInitialized();
+    }
+
+    async Task Run()
+    {
+        IsRunning       = true;
+        Message         = null;
+        ProgressPercent = 0;
+        LoadingMessage  = "Initializing…";
+        StateHasChanged();
+        await Task.Delay(200);
+
+        // Build final toList
+        var toList = RecipientSelections
+                       .Where(kv => kv.Value)
+                       .Select(kv => kv.Key)
+                       .ToList();
+
+        if (IsOtherSelected && !string.IsNullOrWhiteSpace(CustomEmail))
+            toList.Add(CustomEmail.Trim());
+
+        var steps = new[] {
+      (20, "Building query…"),
+      (40, "Retrieving data…"),
+      (60, "Preparing columns…"),
+      (80, "Generating Excel & Email…"),
+      (100,"Finalizing…")
+    };
+
+        foreach (var (pct, txt) in steps)
+        {
+            ProgressPercent = pct;
+            LoadingMessage  = txt;
+            StateHasChanged();
+
+            if (pct == 80)
+            {
+                var selectedCols = AvailableCols.Where(c => c.IsSelected).ToList();
+                Message = await Task.Run(() =>
+                  ExportSvc.RunExport(DaysBack, toList, selectedCols)
+                );
+            }
+            await Task.Delay(300);
+        }
+
+        IsRunning = false;
+        StateHasChanged();
+    }
+}

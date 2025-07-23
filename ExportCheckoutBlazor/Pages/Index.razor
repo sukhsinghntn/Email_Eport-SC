@@ -1,0 +1,142 @@
+﻿@page "/s"
+@using System.Net.Mail
+@using System.Globalization
+@using NDAProcesses.Services
+@inject SettingsService SettingsSvc
+
+<h3>Report Schedule &amp; Recipients</h3>
+
+<div class="mb-3">
+    <label for="scheduledTime" class="form-label">Time of day</label>
+    <input id="scheduledTime"
+           class="form-control"
+           value="@TimeString"
+           @oninput="OnTimeInput"
+           maxlength="5"
+           placeholder="HH:mm"
+           inputmode="numeric" />
+</div>
+
+<div class="mb-3">
+    <label for="daysBack" class="form-label">Days back</label>
+    <input id="daysBack"
+           type="number"
+           min="1"
+           max="30"
+           class="form-control"
+           @bind-value="DaysBack"
+           @bind-value:event="onchange" />
+    <small class="form-text text-muted">
+        How many days of data to include.
+    </small>
+</div>
+
+<div class="mb-3">
+    <label for="recipients" class="form-label">Recipients (comma-separated)</label>
+    <input id="recipients"
+           type="text"
+           class="form-control"
+           @bind-value="RecipientsText"
+           @bind-value:event="onchange" />
+</div>
+
+<button class="btn btn-primary" @onclick="Save">Save Settings</button>
+
+@if (!string.IsNullOrEmpty(Message))
+{
+    <div class="alert alert-success mt-3">@Message</div>
+}
+
+@code {
+    // Backing fields are all CLR types—no TimeOnly/DateTime here
+    private string TimeString { get; set; }
+    private int DaysBack { get; set; }
+    private string RecipientsText { get; set; }
+    private string Message { get; set; }
+
+    protected override void OnInitialized()
+    {
+        var s = SettingsSvc.Settings;
+        // Format the existing TimeSpan into "hh:mm" for the <input type="time">
+        TimeString     = s.ScheduledTime.ToString(@"hh\:mm");
+        DaysBack       = s.DaysBack;
+        RecipientsText = string.Join(", ", s.Recipients);
+    }
+    void OnTimeInput(ChangeEventArgs e)
+{
+    // raw user input
+    var raw = e.Value?.ToString() ?? "";
+
+    // keep only digits and colon
+    var filtered = new string(raw.Where(c => char.IsDigit(c) || c == ':').ToArray());
+
+    // enforce max length 5 ("HH:mm")
+    if (filtered.Length > 5)
+        filtered = filtered.Substring(0, 5);
+
+    // auto-insert colon after 2 digits (if missing)
+    if (filtered.Length >= 3 && filtered[2] != ':')
+        filtered = filtered.Insert(2, ":");
+
+    TimeString = filtered;
+}
+
+    private void Save()
+    {
+        // enforce 1–30 range
+        if (DaysBack < 1 || DaysBack > 30)
+        {
+            Message = "⚠️ Days back must be between 1 and 30.";
+            return;
+        }
+        // 1) Ensure there’s at least one recipient
+        if (string.IsNullOrWhiteSpace(RecipientsText))
+        {
+            Message = "⚠️ Please enter at least one recipient email.";
+            return;
+        }
+
+        // 2) Split & validate each address
+        var emails = RecipientsText
+            .Split(',', StringSplitOptions.RemoveEmptyEntries)
+            .Select(e => e.Trim());
+        foreach (var mail in emails)
+        {
+            try
+            {
+                _ = new MailAddress(mail);
+            }
+            catch
+            {
+                Message = $"⚠️ '{mail}' is not a valid email address.";
+                return;
+            }
+        }
+        // 1) Try parsing locale‐formatted time, e.g. "09:08 AM"
+        if (DateTime.TryParse(TimeString, CultureInfo.CurrentCulture, DateTimeStyles.NoCurrentDateDefault, out var dt))
+        {
+            SettingsSvc.Settings.ScheduledTime = dt.TimeOfDay;
+        }
+        // 2) Fallback to strict 24h format "hh:mm"
+        else if (TimeSpan.TryParseExact(TimeString, @"hh\:mm", CultureInfo.InvariantCulture, out var ts))
+        {
+            SettingsSvc.Settings.ScheduledTime = ts;
+        }
+        else
+        {
+            Message = "⚠️ Invalid time. Please pick a valid time (e.g., 09:30).";
+            return;
+        }
+
+        // Always commit the other settings
+        SettingsSvc.Settings.DaysBack    = DaysBack;
+        SettingsSvc.Settings.Recipients  = RecipientsText
+          .Split(',', StringSplitOptions.RemoveEmptyEntries)
+          .Select(e => e.Trim())
+          .ToArray();
+
+        // Persist to appsettings.custom.json
+        SettingsSvc.Save();
+        Message = "✅ Settings saved!";
+    }
+}

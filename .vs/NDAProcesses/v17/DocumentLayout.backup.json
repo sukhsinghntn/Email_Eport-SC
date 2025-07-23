@@ -1,0 +1,177 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\ssingh\\Desktop\\Admin\\LOGINONLY\\Email_Eport-SC\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{165CBA67-4545-41B4-AEBB-E66FB6550DE8}|ExportCheckoutBlazor\\NDAProcesses.csproj|c:\\users\\ssingh\\desktop\\admin\\loginonly\\email_eport-sc\\exportcheckoutblazor\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{165CBA67-4545-41B4-AEBB-E66FB6550DE8}|ExportCheckoutBlazor\\NDAProcesses.csproj|solutionrelative:exportcheckoutblazor\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{165CBA67-4545-41B4-AEBB-E66FB6550DE8}|ExportCheckoutBlazor\\NDAProcesses.csproj|c:\\users\\ssingh\\desktop\\admin\\loginonly\\email_eport-sc\\exportcheckoutblazor\\pages\\fetchdata.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{165CBA67-4545-41B4-AEBB-E66FB6550DE8}|ExportCheckoutBlazor\\NDAProcesses.csproj|solutionrelative:exportcheckoutblazor\\pages\\fetchdata.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{165CBA67-4545-41B4-AEBB-E66FB6550DE8}|ExportCheckoutBlazor\\NDAProcesses.csproj|c:\\users\\ssingh\\desktop\\admin\\loginonly\\email_eport-sc\\exportcheckoutblazor\\wwwroot\\css\\bootstrap\\bootstrap.min.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{165CBA67-4545-41B4-AEBB-E66FB6550DE8}|ExportCheckoutBlazor\\NDAProcesses.csproj|solutionrelative:exportcheckoutblazor\\wwwroot\\css\\bootstrap\\bootstrap.min.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{165CBA67-4545-41B4-AEBB-E66FB6550DE8}|ExportCheckoutBlazor\\NDAProcesses.csproj|c:\\users\\ssingh\\desktop\\admin\\loginonly\\email_eport-sc\\exportcheckoutblazor\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{165CBA67-4545-41B4-AEBB-E66FB6550DE8}|ExportCheckoutBlazor\\NDAProcesses.csproj|solutionrelative:exportcheckoutblazor\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{165CBA67-4545-41B4-AEBB-E66FB6550DE8}|ExportCheckoutBlazor\\NDAProcesses.csproj|c:\\users\\ssingh\\desktop\\admin\\loginonly\\email_eport-sc\\exportcheckoutblazor\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{165CBA67-4545-41B4-AEBB-E66FB6550DE8}|ExportCheckoutBlazor\\NDAProcesses.csproj|solutionrelative:exportcheckoutblazor\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{165CBA67-4545-41B4-AEBB-E66FB6550DE8}|ExportCheckoutBlazor\\NDAProcesses.csproj|c:\\users\\ssingh\\desktop\\admin\\loginonly\\email_eport-sc\\exportcheckoutblazor\\services\\scheduledemailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{165CBA67-4545-41B4-AEBB-E66FB6550DE8}|ExportCheckoutBlazor\\NDAProcesses.csproj|solutionrelative:exportcheckoutblazor\\services\\scheduledemailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{165CBA67-4545-41B4-AEBB-E66FB6550DE8}|ExportCheckoutBlazor\\NDAProcesses.csproj|c:\\users\\ssingh\\desktop\\admin\\loginonly\\email_eport-sc\\exportcheckoutblazor\\services\\exportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{165CBA67-4545-41B4-AEBB-E66FB6550DE8}|ExportCheckoutBlazor\\NDAProcesses.csproj|solutionrelative:exportcheckoutblazor\\services\\exportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 15,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:132:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:133:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:134:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "bootstrap.min.css",
+              "DocumentMoniker": "C:\\Users\\ssingh\\Desktop\\Admin\\LOGINONLY\\Email_Eport-SC\\ExportCheckoutBlazor\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+              "RelativeDocumentMoniker": "ExportCheckoutBlazor\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+              "ToolTip": "C:\\Users\\ssingh\\Desktop\\Admin\\LOGINONLY\\Email_Eport-SC\\ExportCheckoutBlazor\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+              "RelativeToolTip": "ExportCheckoutBlazor\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAAAYAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-06-09T12:32:45.805Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "App.razor",
+              "DocumentMoniker": "C:\\Users\\ssingh\\Desktop\\Admin\\LOGINONLY\\Email_Eport-SC\\ExportCheckoutBlazor\\App.razor",
+              "RelativeDocumentMoniker": "ExportCheckoutBlazor\\App.razor",
+              "ToolTip": "C:\\Users\\ssingh\\Desktop\\Admin\\LOGINONLY\\Email_Eport-SC\\ExportCheckoutBlazor\\App.razor",
+              "RelativeToolTip": "ExportCheckoutBlazor\\App.razor",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAAAAkAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-09T12:32:42.937Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FetchData.razor",
+              "DocumentMoniker": "C:\\Users\\ssingh\\Desktop\\Admin\\LOGINONLY\\Email_Eport-SC\\ExportCheckoutBlazor\\Pages\\FetchData.razor",
+              "RelativeDocumentMoniker": "ExportCheckoutBlazor\\Pages\\FetchData.razor",
+              "ToolTip": "C:\\Users\\ssingh\\Desktop\\Admin\\LOGINONLY\\Email_Eport-SC\\ExportCheckoutBlazor\\Pages\\FetchData.razor",
+              "RelativeToolTip": "ExportCheckoutBlazor\\Pages\\FetchData.razor",
+              "ViewState": "AgIAAGAAAAAAAAAAAAAAAAUAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-09T12:27:48.528Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ExportService.cs",
+              "DocumentMoniker": "C:\\Users\\ssingh\\Desktop\\Admin\\LOGINONLY\\Email_Eport-SC\\ExportCheckoutBlazor\\Services\\ExportService.cs",
+              "RelativeDocumentMoniker": "ExportCheckoutBlazor\\Services\\ExportService.cs",
+              "ToolTip": "C:\\Users\\ssingh\\Desktop\\Admin\\LOGINONLY\\Email_Eport-SC\\ExportCheckoutBlazor\\Services\\ExportService.cs",
+              "RelativeToolTip": "ExportCheckoutBlazor\\Services\\ExportService.cs",
+              "ViewState": "AgIAAHoAAAAAAAAAAAAgwHcAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-16T16:50:01.086Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\ssingh\\Desktop\\Admin\\LOGINONLY\\Email_Eport-SC\\ExportCheckoutBlazor\\appsettings.json",
+              "RelativeDocumentMoniker": "ExportCheckoutBlazor\\appsettings.json",
+              "ToolTip": "C:\\Users\\ssingh\\Desktop\\Admin\\LOGINONLY\\Email_Eport-SC\\ExportCheckoutBlazor\\appsettings.json",
+              "RelativeToolTip": "ExportCheckoutBlazor\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-05-15T18:30:51.018Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ScheduledEmailService.cs",
+              "DocumentMoniker": "C:\\Users\\ssingh\\Desktop\\Admin\\LOGINONLY\\Email_Eport-SC\\ExportCheckoutBlazor\\Services\\ScheduledEmailService.cs",
+              "RelativeDocumentMoniker": "ExportCheckoutBlazor\\Services\\ScheduledEmailService.cs",
+              "ToolTip": "C:\\Users\\ssingh\\Desktop\\Admin\\LOGINONLY\\Email_Eport-SC\\ExportCheckoutBlazor\\Services\\ScheduledEmailService.cs",
+              "RelativeToolTip": "ExportCheckoutBlazor\\Services\\ScheduledEmailService.cs",
+              "ViewState": "AgIAADEAAAAAAAAAAAAkwB0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-15T17:24:52.133Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\ssingh\\Desktop\\Admin\\LOGINONLY\\Email_Eport-SC\\ExportCheckoutBlazor\\Program.cs",
+              "RelativeDocumentMoniker": "ExportCheckoutBlazor\\Program.cs",
+              "ToolTip": "C:\\Users\\ssingh\\Desktop\\Admin\\LOGINONLY\\Email_Eport-SC\\ExportCheckoutBlazor\\Program.cs",
+              "RelativeToolTip": "ExportCheckoutBlazor\\Program.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAiwCkAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-23T18:12:37.047Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

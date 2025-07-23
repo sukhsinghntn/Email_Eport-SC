@@ -1,0 +1,424 @@
+﻿@page "/"
+@using System
+@using System.Linq
+@using System.Net.Mail
+@using System.Globalization
+@using NDAProcesses.Services
+@using Microsoft.AspNetCore.Components.Forms
+@inject ExportService ExportSvc
+@inject SettingsService SettingsSvc
+
+<style>
+    /* Dark theme background */
+    .app-container {
+        background-color: #1e1e2f;
+        color: #e0e0e0;
+        min-height: 100vh;
+        padding: 2rem;
+    }
+
+    /* Buttons to open modals */
+    .open-btn {
+        margin-right: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    /* Modal overlay */
+    .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.7);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1050;
+    }
+
+    /* Modal content */
+    .modal-content {
+        background-color: #2e3440;
+        border: 1px solid #4c566a;
+        border-radius: 8px;
+        padding: 1.5rem;
+        width: 90%;
+        max-width: 600px;
+        position: relative;
+    }
+
+    /* Close button */
+    .modal-close {
+        position: absolute;
+        top: 0.5rem;
+        right: 0.5rem;
+        background: none;
+        border: none;
+        color: #e0e0e0;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+
+    /* Panel headings */
+    .settings-panel h4 {
+        color: #88c0d0;
+    }
+
+    .generate-panel h4 {
+        color: #a3be8c;
+    }
+
+    /* Form labels and text */
+    .form-label, .form-text {
+        color: #d8dee9;
+    }
+
+    /* Buttons */
+    .btn-custom {
+        border-radius: 4px;
+        min-width: 150px;
+    }
+
+    .buttons-container {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin: 2rem 0;
+    }
+
+    .open-btn {
+        flex: 1;
+        max-width: 300px;
+        font-size: 1.25rem;
+        padding: 0.75rem 1.5rem;
+    }
+
+</style>
+
+<div class="app-container">
+
+    <h3 class="buttons-container">
+        Tool Crib Email Dashboard
+    </h3>
+    <div class="buttons-container">
+        <button class="btn btn-info open-btn" @onclick="() => ShowSettingsModal = true">
+            ⚙️ Schedule Settings
+        </button>
+        <button class="btn btn-success open-btn" @onclick="() => ShowExportModal = true">
+            📤 Custom Report
+        </button>
+    </div>
+
+
+    @* Settings Modal *@
+    @if (ShowSettingsModal)
+    {
+        <div class="modal-overlay">
+            <div class="modal-content settings-panel">
+                <button class="modal-close" @onclick="() => ShowSettingsModal = false">×</button>
+                <h4>Report Schedule &amp; Recipients</h4>
+
+                <div class="mb-3">
+                    <label for="scheduleTime" class="form-label">Time of day (HH:mm):</label>
+                    <input id="scheduleTime"
+                           class="form-control"
+                           maxlength="5"
+                           placeholder="HH:mm"
+                           value="@ScheduleTimeString"
+                           @oninput="OnScheduleTimeInput" />
+                </div>
+
+                <div class="mb-3">
+                    <label for="scheduleDaysBack" class="form-label">Days back:</label>
+                    <input id="scheduleDaysBack"
+                           type="number"
+                           min="1" max="30"
+                           class="form-control"
+                           @bind="ScheduleDaysBack" />
+                    <small class="form-text text-muted">
+                        How many days of data to include.
+                    </small>
+                </div>
+
+                <div class="mb-3">
+                    <label for="scheduleRecipients" class="form-label">Recipients (comma-separated):</label>
+                    <input id="scheduleRecipients"
+                           type="text"
+                           class="form-control"
+                           @bind="ScheduleRecipientsText" />
+                </div>
+
+                <button class="btn btn-outline-info btn-custom" @onclick="SaveSchedule">
+                    Save Settings
+                </button>
+
+                @if (!string.IsNullOrEmpty(ScheduleMessage))
+                {
+                    <div class="alert alert-info mt-3">@ScheduleMessage</div>
+                }
+            </div>
+        </div>
+    }
+
+    @* Export Modal *@
+    @if (ShowExportModal)
+    {
+        <div class="modal-overlay">
+            <div class="modal-content generate-panel">
+                <button class="modal-close" @onclick="() => ShowExportModal = false">×</button>
+                <h4>Generate Checkout Report</h4>
+
+                <div class="mb-3">
+                    <label class="form-label">Select Columns:</label>
+                    <div>
+                        @foreach (var col in AvailableCols)
+                        {
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input"
+                                       type="checkbox"
+                                       id="@($"chk_col_{col.NameSql}")"
+                                       @bind="col.IsSelected" />
+                                <label class="form-check-label" for="@($"chk_col_{col.NameSql}")">
+                                    @col.Label
+                                </label>
+                            </div>
+                        }
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Pick recipients:</label>
+                    <div>
+                        @foreach (var email in PresetEmailOptions)
+                        {
+                            <div class="form-check">
+                                <input class="form-check-input"
+                                       type="checkbox"
+                                       id="@($"chk_recipient_{email}")"
+                                       @bind="RecipientSelections[email]" />
+                                <label class="form-check-label" for="@($"chk_recipient_{email}")">
+                                    @email
+                                </label>
+                            </div>
+                        }
+                        <div class="form-check">
+                            <input class="form-check-input"
+                                   type="checkbox"
+                                   id="chk_recipient_Other"
+                                   @bind="IsOtherSelectedExport" />
+                            <label class="form-check-label" for="chk_recipient_Other">
+                                Other
+                            </label>
+                        </div>
+                    </div>
+                    @if (IsOtherSelectedExport)
+                    {
+                        <input class="form-control mt-1"
+                               placeholder="you@@ntnanderson.com"
+                               @bind="CustomEmailExport" />
+                    }
+                </div>
+
+                <div class="mb-3">
+                    <label for="exportDaysBack" class="form-label">Days back:</label>
+                    <InputNumber id="exportDaysBack"
+                                 TValue="int"
+                                 class="form-control"
+                                 min="1" max="365"
+                                 @bind-Value="ExportDaysBack" />
+                </div>
+
+                <button class="btn btn-outline-success btn-custom"
+                        @onclick="RunExportMR"
+                        disabled="@ExportIsRunning">
+                    @if (ExportIsRunning)
+                    {
+                        <span class="spinner-border spinner-border-sm" role="status"></span>
+                        <text>Processing…</text>
+                    }
+                    else
+                    {
+                        <text>Generate &amp; Email</text>
+                    }
+                </button>
+
+                @if (ExportIsRunning)
+                {
+                    <div class="mt-3">
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated"
+                                 style="width:@ExportProgressPercent%"></div>
+                        </div>
+                        <p class="mt-2">@ExportLoadingMessage</p>
+                    </div>
+                }
+                else if (!string.IsNullOrEmpty(ExportMessage))
+                {
+                    <div class="alert alert-info mt-3">@ExportMessage</div>
+                }
+            </div>
+        </div>
+    }
+
+</div>
+
+@code {
+    // Modal toggles
+    bool ShowSettingsModal;
+    bool ShowExportModal;
+
+    // ── Export UI state ─────────────────────────────────────────────────────────
+    List<string> PresetEmailOptions { get; set; } = new()
+  {
+    "nda2-toolcrib@ntnanderson.com"
+  };
+    Dictionary<string, bool> RecipientSelections { get; set; }
+    bool IsOtherSelectedExport { get; set; }
+    string CustomEmailExport { get; set; }
+    int ExportDaysBack { get; set; } = 1;
+    bool ExportIsRunning;
+    int ExportProgressPercent;
+    string ExportLoadingMessage;
+    string ExportMessage;
+    List<ColumnDef> AvailableCols = new()
+  {
+    new ColumnDef { NameSql="id",           Label="ID",            IsSelected=true },
+    new ColumnDef { NameSql="QRCODE",       Label="Part#",        IsSelected=true },
+    new ColumnDef { NameSql="[DESC]",       Label="Desc",         IsSelected=true },
+    new ColumnDef { NameSql="QTY",          Label="Quantity",     IsSelected=true },
+    new ColumnDef { NameSql="BIN",          Label="Loc",          IsSelected=true },
+    new ColumnDef { NameSql="DEPT",         Label="Department",   IsSelected=true },
+    new ColumnDef { NameSql="USER_NAME",    Label="User Name",    IsSelected=true },
+    new ColumnDef { NameSql="checkout_time",Label="Checkout Time",IsSelected=true }
+  };
+
+    // ── Schedule UI state ───────────────────────────────────────────────────────
+    private string ScheduleTimeString { get; set; }
+    private int ScheduleDaysBack { get; set; }
+    private string ScheduleRecipientsText { get; set; }
+    private string ScheduleMessage { get; set; }
+
+    protected override void OnInitialized()
+    {
+        RecipientSelections = PresetEmailOptions.ToDictionary(e => e, _ => false);
+        var s = SettingsSvc.Settings;
+        ScheduleTimeString     = s.ScheduledTime.ToString(@"hh\:mm");
+        ScheduleDaysBack       = s.DaysBack;
+        ScheduleRecipientsText = string.Join(", ", s.Recipients);
+    }
+
+    async Task RunExportMR()
+    {
+        // 1) Validate columns
+        if (!AvailableCols.Any(c => c.IsSelected))
+        {
+            ExportMessage = "⚠️ Please select at least one column.";
+            return;
+        }
+        // 2) Validate recipients
+        var recipientsList = RecipientSelections
+          .Where(kv => kv.Value)
+          .Select(kv => kv.Key)
+          .ToList();
+        if (IsOtherSelectedExport && !string.IsNullOrWhiteSpace(CustomEmailExport))
+        {
+            try { _ = new MailAddress(CustomEmailExport.Trim()); recipientsList.Add(CustomEmailExport.Trim()); }
+            catch { ExportMessage = $"⚠️ '{CustomEmailExport}' is not valid."; return; }
+        }
+        if (!recipientsList.Any())
+        {
+            ExportMessage = "⚠️ Please pick at least one recipient.";
+            return;
+        }
+        // 3) Validate days back
+        if (ExportDaysBack < 0 || ExportDaysBack > 365)
+        {
+            ExportMessage = "⚠️ Days back must be 1–365.";
+            return;
+        }
+
+        // Processing...
+        ExportMessage         = null;
+        ExportIsRunning       = true;
+        ExportProgressPercent = 0;
+        ExportLoadingMessage  = "Initializing…";
+        StateHasChanged();
+        await Task.Delay(100);
+
+        var steps = new[]
+        {
+      (20, "Building query…"),
+      (40, "Retrieving data…"),
+      (60, "Preparing columns…"),
+      (80, "Generating Excel & Email…"),
+      (100,"Finalizing…")
+    };
+
+        foreach (var (pct, txt) in steps)
+        {
+            ExportProgressPercent = pct;
+            ExportLoadingMessage  = txt;
+            StateHasChanged();
+            if (pct == 80)
+            {
+                var selectedCols = AvailableCols.Where(c => c.IsSelected).ToList();
+                ExportMessage = await Task.Run(() =>
+                  ExportSvc.RunExport(ExportDaysBack, recipientsList, selectedCols)
+                );
+            }
+            await Task.Delay(300);
+        }
+
+        ExportIsRunning = false;
+        StateHasChanged();
+    }
+
+    void OnScheduleTimeInput(ChangeEventArgs e)
+    {
+        var raw = e.Value?.ToString() ?? "";
+        var filtered = new string(raw.Where(c => char.IsDigit(c) || c == ':').ToArray());
+        if (filtered.Length > 5) filtered = filtered.Substring(0, 5);
+        if (filtered.Length >= 3 && filtered[2] != ':')
+            filtered = filtered.Insert(2, ":");
+        ScheduleTimeString = filtered;
+    }
+
+    void SaveSchedule()
+    {
+        // Recipients
+        if (string.IsNullOrWhiteSpace(ScheduleRecipientsText))
+        {
+            ScheduleMessage = "⚠️ Enter at least one recipient.";
+            return;
+        }
+        var emails = ScheduleRecipientsText
+          .Split(',', StringSplitOptions.RemoveEmptyEntries)
+          .Select(e => e.Trim());
+        foreach (var mail in emails)
+        {
+            try { _ = new MailAddress(mail); }
+            catch { ScheduleMessage = $"⚠️ '{mail}' is invalid."; return; }
+        }
+        // Days back
+        if (ScheduleDaysBack < 0 || ScheduleDaysBack > 30)
+        {
+            ScheduleMessage = "⚠️ Days back must be 1–30.";
+            return;
+        }
+        // Time
+        if (!TimeSpan.TryParseExact(
+              ScheduleTimeString, @"hh\:mm",
+              CultureInfo.InvariantCulture, out var ts))
+        {
+            ScheduleMessage = "⚠️ Time must be HH:mm.";
+            return;
+        }
+        var s = SettingsSvc.Settings;
+        s.ScheduledTime = ts;
+        s.DaysBack      = ScheduleDaysBack;
+        s.Recipients    = emails.ToArray();
+        SettingsSvc.Save();
+        ScheduleMessage = "✅ Settings saved!";
+    }
+}

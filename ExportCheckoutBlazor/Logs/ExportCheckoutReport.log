@@ -1,0 +1,228 @@
+2025-04-30 11:43:00 - Starting export for last 1 days.
+2025-04-30 11:43:00 - Building SQL for columns: id, QRCODE, [DESC], QTY, BIN, DEPT, USER_NAME, checkout_time
+2025-04-30 11:43:00 - Retrieved 0 rows with 8 columns.
+2025-04-30 11:43:02 - Excel saved: C:\Users\ssingh\Desktop\test\ExportBlazor\ExportCheckoutBlazor\Exports\CheckoutHist_20250430_114300.xlsx
+2025-04-30 11:43:02 - Sending email to: ssingh@ntnanderson.com
+2025-04-30 11:43:02 - Email sent.
+2025-04-30 11:43:02 - Deleted file: C:\Users\ssingh\Desktop\test\ExportBlazor\ExportCheckoutBlazor\Exports\CheckoutHist_20250430_114300.xlsx
+2025-04-30 11:43:02 - Export completed successfully.
+2025-04-30 11:45:00 - Starting export for last 30 days.
+2025-04-30 11:45:00 - Building SQL for columns: id, QRCODE, [DESC], QTY, BIN, DEPT, USER_NAME, checkout_time
+2025-04-30 11:45:00 - Retrieved 17 rows with 8 columns.
+2025-04-30 11:45:00 - Excel saved: C:\Users\ssingh\Desktop\test\ExportBlazor\ExportCheckoutBlazor\Exports\CheckoutHist_20250430_114500.xlsx
+2025-04-30 11:45:00 - Sending email to: ssingh@ntnanderson.com
+2025-04-30 11:45:00 - Email sent.
+2025-04-30 11:45:00 - Deleted file: C:\Users\ssingh\Desktop\test\ExportBlazor\ExportCheckoutBlazor\Exports\CheckoutHist_20250430_114500.xlsx
+2025-04-30 11:45:00 - Export completed successfully.
+2025-04-30 13:23:52 - Starting export for last 10 days.
+2025-04-30 13:23:52 - Building SQL for columns: id, QRCODE, [DESC], QTY, BIN, DEPT, USER_NAME, checkout_time
+2025-04-30 13:23:53 - Retrieved 0 rows with 8 columns.
+2025-04-30 13:23:56 - Excel saved: C:\Users\ssingh\Desktop\test\ExportBlazor\ExportCheckoutBlazor\Exports\CheckoutHist_20250430_132353.xlsx
+2025-04-30 13:23:56 - Sending email to: ssingh@ntnanderson.com
+2025-04-30 13:23:56 - Email sent.
+2025-04-30 13:23:56 - Deleted file: C:\Users\ssingh\Desktop\test\ExportBlazor\ExportCheckoutBlazor\Exports\CheckoutHist_20250430_132353.xlsx
+2025-04-30 13:23:56 - Export completed successfully.
+2025-05-01 06:33:43 - Starting export for last 1 days.
+2025-05-01 06:33:43 - Building SQL for columns: id, QRCODE, [DESC], QTY, BIN, DEPT, USER_NAME, checkout_time
+2025-05-01 06:33:44 - Retrieved 0 rows with 8 columns.
+2025-05-01 06:33:47 - Excel saved: C:\Users\ssingh\Desktop\test\ExportBlazor\ExportCheckoutBlazor\Exports\CheckoutHist_20250501_063344.xlsx
+2025-05-01 06:33:47 - Sending email to: ssingh@ntnanderson.com
+2025-05-01 06:33:48 - Email sent.
+2025-05-01 06:33:48 - Deleted file: C:\Users\ssingh\Desktop\test\ExportBlazor\ExportCheckoutBlazor\Exports\CheckoutHist_20250501_063344.xlsx
+2025-05-01 06:33:48 - Export completed successfully.
+2025-05-02 12:55:00 - Starting export for last 9 days.
+2025-05-02 12:55:00 - Building SQL for columns: id, QRCODE, [DESC], QTY, BIN, DEPT, USER_NAME, checkout_time
+2025-05-02 12:55:01 - Retrieved 16 rows with 8 columns.
+2025-05-02 12:55:03 - Excel saved: C:\Users\ssingh\Desktop\test\ExportBlazor\ExportCheckoutBlazor\Exports\CheckoutHist_20250502_125501.xlsx
+2025-05-02 12:55:03 - Sending email to: ssingh@ntnanderson.com
+2025-05-02 12:55:03 - Email sent.
+2025-05-02 12:55:03 - Deleted file: C:\Users\ssingh\Desktop\test\ExportBlazor\ExportCheckoutBlazor\Exports\CheckoutHist_20250502_125501.xlsx
+2025-05-02 12:55:03 - Export completed successfully.
+2025-05-15 14:13:51 - Starting export for last 1 days.
+2025-05-15 14:13:51 - Building SQL for columns: id, QRCODE, [DESC], QTY, BIN, DEPT, USER_NAME, checkout_time
+2025-05-15 14:13:52 - Retrieved 9 rows with 8 columns.
+2025-05-15 14:13:56 - Excel saved: C:\Users\ssingh\Desktop\Admin\Email_Eport-SC\ExportCheckoutBlazor\Exports\CheckoutHist_20250515_141352.xlsx
+2025-05-15 14:13:56 - Sending email to: ssingh@ntnanderson.com
+2025-05-15 14:13:56 - Email sent.
+2025-05-15 14:13:56 - Deleted file: C:\Users\ssingh\Desktop\Admin\Email_Eport-SC\ExportCheckoutBlazor\Exports\CheckoutHist_20250515_141352.xlsx
+2025-05-15 14:13:56 - Export completed successfully.
+2025-05-15 14:32:13 - Starting export for last 10 days.
+2025-05-15 14:32:13 - Building SQL for columns: id, QRCODE, [DESC], QTY, BIN, DEPT, USER_NAME, checkout_time
+2025-05-15 14:32:14 - Retrieved 69 rows with 8 columns.
+2025-05-15 14:32:17 - Excel saved: C:\Users\ssingh\Desktop\Admin\Email_Eport-SC\ExportCheckoutBlazor\Exports\CheckoutHist_20250515_143214.xlsx
+2025-05-15 14:32:17 - Sending email to: ssingh@ntnanderson.com
+2025-05-15 14:32:17 - Email sent.
+2025-05-15 14:32:17 - Deleted file: C:\Users\ssingh\Desktop\Admin\Email_Eport-SC\ExportCheckoutBlazor\Exports\CheckoutHist_20250515_143214.xlsx
+2025-05-15 14:32:17 - Export completed successfully.
+2025-05-16 12:56:13 - Starting export for last 10 days.
+2025-05-16 12:56:13 - Building SQL for columns: id, QRCODE, [DESC], QTY, BIN, DEPT, USER_NAME, checkout_time
+2025-05-16 12:56:14 - Retrieved 80 rows with 8 columns.
+2025-05-16 12:56:18 - Excel saved: C:\Users\ssingh\Desktop\Admin\Email_Eport-SC\ExportCheckoutBlazor\Exports\CheckoutHist_20250516_125614.xlsx
+2025-05-16 12:56:18 - Sending email to: ssingh@ntnanderson.com
+2025-05-16 12:56:18 - Email sent.
+2025-05-16 12:56:18 - Deleted file: C:\Users\ssingh\Desktop\Admin\Email_Eport-SC\ExportCheckoutBlazor\Exports\CheckoutHist_20250516_125614.xlsx
+2025-05-16 12:56:18 - Export completed successfully.
+2025-05-16 13:00:00 - Starting export for last 1 days.
+2025-05-16 13:00:00 - Building SQL for columns: id, QRCODE, [DESC], QTY, BIN, DEPT, USER_NAME, checkout_time
+2025-05-16 13:00:00 - Retrieved 12 rows with 8 columns.
+2025-05-16 13:00:00 - Excel saved: C:\Users\ssingh\Desktop\Admin\Email_Eport-SC\ExportCheckoutBlazor\Exports\CheckoutHist_20250516_130000.xlsx
+2025-05-16 13:00:00 - Sending email to: ssingh@ntnanderson.com
+2025-05-16 13:00:00 - Email sent.
+2025-05-16 13:00:00 - Deleted file: C:\Users\ssingh\Desktop\Admin\Email_Eport-SC\ExportCheckoutBlazor\Exports\CheckoutHist_20250516_130000.xlsx
+2025-05-16 13:00:00 - Export completed successfully.
+2025-05-16 13:05:00 - Starting export for last 1 days.
+2025-05-16 13:05:00 - Building SQL for columns: id, QRCODE, [DESC], QTY, BIN, DEPT, USER_NAME, checkout_time
+2025-05-16 13:05:00 - Retrieved 12 rows with 8 columns.
+2025-05-16 13:05:00 - Excel saved: C:\Users\ssingh\Desktop\Admin\Email_Eport-SC\ExportCheckoutBlazor\Exports\CheckoutHist_20250516_130500.xlsx
+2025-05-16 13:05:00 - Sending email to: ssingh@ntnanderson.com
+2025-05-16 13:05:00 - Email sent.
+2025-05-16 13:05:00 - Deleted file: C:\Users\ssingh\Desktop\Admin\Email_Eport-SC\ExportCheckoutBlazor\Exports\CheckoutHist_20250516_130500.xlsx
+2025-05-16 13:05:00 - Export completed successfully.
+2025-05-16 13:05:45 - Starting export for last 1 days.
+2025-05-16 13:05:45 - Building SQL for columns: id, QRCODE, [DESC], QTY, BIN, DEPT, USER_NAME, checkout_time
+2025-05-16 13:05:46 - Retrieved 12 rows with 8 columns.
+2025-05-16 13:05:49 - Excel saved: C:\Users\ssingh\Desktop\Admin\Email_Eport-SC\ExportCheckoutBlazor\Exports\CheckoutHist_20250516_130546.xlsx
+2025-05-16 13:05:49 - Sending email to: ssingh@ntnanderson.com
+2025-05-16 13:05:49 - Email sent.
+2025-05-16 13:05:49 - Deleted file: C:\Users\ssingh\Desktop\Admin\Email_Eport-SC\ExportCheckoutBlazor\Exports\CheckoutHist_20250516_130546.xlsx
+2025-05-16 13:05:49 - Export completed successfully.
+2025-05-16 13:15:36 - Starting export for last 1 days.
+2025-05-16 13:15:36 - Building SQL for columns: id, QRCODE, [DESC], QTY, BIN, DEPT, USER_NAME, checkout_time
+2025-05-16 13:15:37 - Retrieved 12 rows with 8 columns.
+2025-05-16 13:15:40 - Excel saved: C:\Users\ssingh\Desktop\Admin\Email_Eport-SC\ExportCheckoutBlazor\Exports\CheckoutHist_20250516_131537.xlsx
+2025-05-16 13:15:40 - Sending email to: ssingh@ntnanderson.com
+2025-05-16 13:15:40 - Email sent.
+2025-05-16 13:15:40 - Deleted file: C:\Users\ssingh\Desktop\Admin\Email_Eport-SC\ExportCheckoutBlazor\Exports\CheckoutHist_20250516_131537.xlsx
+2025-05-16 13:15:40 - Export completed successfully.
+2025-05-16 13:16:00 - Starting export for last 1 days.
+2025-05-16 13:16:00 - Building SQL for columns: id, QRCODE, [DESC], QTY, BIN, DEPT, USER_NAME, checkout_time
+2025-05-16 13:16:00 - Retrieved 12 rows with 8 columns.
+2025-05-16 13:16:00 - Excel saved: C:\Users\ssingh\Desktop\Admin\Email_Eport-SC\ExportCheckoutBlazor\Exports\CheckoutHist_20250516_131600.xlsx
+2025-05-16 13:16:00 - Sending email to: ssingh@ntnanderson.com
+2025-05-16 13:16:00 - Email sent.
+2025-05-16 13:16:00 - Deleted file: C:\Users\ssingh\Desktop\Admin\Email_Eport-SC\ExportCheckoutBlazor\Exports\CheckoutHist_20250516_131600.xlsx
+2025-05-16 13:16:00 - Export completed successfully.
+2025-05-16 13:18:00 - Starting export for last 1 days.
+2025-05-16 13:18:00 - Building SQL for columns: id, QRCODE, [DESC], QTY, BIN, DEPT, USER_NAME, checkout_time
+2025-05-16 13:18:00 - Retrieved 12 rows with 8 columns.
+2025-05-16 13:18:03 - Excel saved: C:\Users\ssingh\Desktop\Admin\Email_Eport-SC\ExportCheckoutBlazor\Exports\CheckoutHist_20250516_131800.xlsx
+2025-05-16 13:18:03 - Sending email to: ssingh@ntnanderson.com
+2025-05-16 13:18:04 - Email sent.
+2025-05-16 13:18:04 - Deleted file: C:\Users\ssingh\Desktop\Admin\Email_Eport-SC\ExportCheckoutBlazor\Exports\CheckoutHist_20250516_131800.xlsx
+2025-05-16 13:18:04 - Export completed successfully.
+2025-05-16 13:18:04 - Starting export for last 1 days.
+2025-05-16 13:18:04 - Building SQL for columns: id, QRCODE, [DESC], QTY, BIN, DEPT, USER_NAME, checkout_time
+2025-05-16 13:18:04 - Retrieved 12 rows with 8 columns.
+2025-05-16 13:18:04 - Excel saved: C:\Users\ssingh\Desktop\Admin\Email_Eport-SC\ExportCheckoutBlazor\Exports\CheckoutHist_20250516_131804.xlsx
+2025-05-16 13:18:04 - Sending email to: ssingh@ntnanderson.com
+2025-05-16 13:18:04 - Email sent.
+2025-05-16 13:18:04 - Deleted file: C:\Users\ssingh\Desktop\Admin\Email_Eport-SC\ExportCheckoutBlazor\Exports\CheckoutHist_20250516_131804.xlsx
+2025-05-16 13:18:04 - Export completed successfully.
+2025-05-16 13:26:00 - Starting export for last 1 days.
+2025-05-16 13:26:00 - Building SQL for columns: id, QRCODE, [DESC], QTY, BIN, DEPT, USER_NAME, checkout_time
+2025-05-16 13:26:01 - Retrieved 12 rows with 8 columns.
+2025-05-16 13:26:04 - Excel saved: C:\Users\ssingh\Desktop\Admin\Email_Eport-SC\ExportCheckoutBlazor\Exports\CheckoutHist_20250516_132601.xlsx
+2025-05-16 13:26:04 - Sending email to: ssingh@ntnanderson.com
+2025-05-16 13:26:04 - Email sent.
+2025-05-16 13:26:04 - Deleted file: C:\Users\ssingh\Desktop\Admin\Email_Eport-SC\ExportCheckoutBlazor\Exports\CheckoutHist_20250516_132601.xlsx
+2025-05-16 13:26:04 - Export completed successfully.
+2025-05-16 13:26:05 - Starting export for last 1 days.
+2025-05-16 13:26:06 - Building SQL for columns: id, QRCODE, [DESC], QTY, BIN, DEPT, USER_NAME, checkout_time
+2025-05-16 13:26:06 - Retrieved 12 rows with 8 columns.
+2025-05-16 13:26:06 - Excel saved: C:\Users\ssingh\Desktop\Admin\Email_Eport-SC\ExportCheckoutBlazor\Exports\CheckoutHist_20250516_132606.xlsx
+2025-05-16 13:26:06 - Sending email to: ssingh@ntnanderson.com
+2025-05-16 13:26:06 - Email sent.
+2025-05-16 13:26:06 - Deleted file: C:\Users\ssingh\Desktop\Admin\Email_Eport-SC\ExportCheckoutBlazor\Exports\CheckoutHist_20250516_132606.xlsx
+2025-05-16 13:26:06 - Export completed successfully.
+2025-05-16 13:28:34 - Starting export for last 1 days.
+2025-05-16 13:28:34 - Building SQL for columns: id, QRCODE, [DESC], QTY, BIN, DEPT, USER_NAME, checkout_time
+2025-05-16 13:28:34 - Retrieved 12 rows with 8 columns.
+2025-05-16 13:28:34 - Excel saved: C:\Users\ssingh\Desktop\Admin\Email_Eport-SC\ExportCheckoutBlazor\Exports\CheckoutHist_20250516_132834.xlsx
+2025-05-16 13:28:34 - Sending email to: ssingh@ntnanderson.com
+2025-05-16 13:28:34 - Email sent.
+2025-05-16 13:28:34 - Deleted file: C:\Users\ssingh\Desktop\Admin\Email_Eport-SC\ExportCheckoutBlazor\Exports\CheckoutHist_20250516_132834.xlsx
+2025-05-16 13:28:34 - Export completed successfully.
+2025-05-16 13:31:46 - Starting export for last 1 days.
+2025-05-16 13:31:46 - Building SQL for columns: id, QRCODE, [DESC], QTY, BIN, DEPT, USER_NAME, checkout_time
+2025-05-16 13:31:46 - Retrieved 12 rows with 8 columns.
+2025-05-16 13:31:46 - Excel saved: C:\Users\ssingh\Desktop\Admin\Email_Eport-SC\ExportCheckoutBlazor\Exports\CheckoutHist_20250516_133146.xlsx
+2025-05-16 13:31:46 - Sending email to: ssingh@ntnanderson.com
+2025-05-16 13:31:46 - Email sent.
+2025-05-16 13:31:46 - Deleted file: C:\Users\ssingh\Desktop\Admin\Email_Eport-SC\ExportCheckoutBlazor\Exports\CheckoutHist_20250516_133146.xlsx
+2025-05-16 13:31:46 - Export completed successfully.
+2025-05-16 13:32:09 - Starting export for last 1 days.
+2025-05-16 13:32:09 - Building SQL for columns: USER_NAME
+2025-05-16 13:32:09 - Retrieved 12 rows with 1 columns.
+2025-05-16 13:32:09 - Excel saved: C:\Users\ssingh\Desktop\Admin\Email_Eport-SC\ExportCheckoutBlazor\Exports\CheckoutHist_20250516_133209.xlsx
+2025-05-16 13:32:09 - Sending email to: ssingh@ntnanderson.com
+2025-05-16 13:32:09 - Email sent.
+2025-05-16 13:32:09 - Deleted file: C:\Users\ssingh\Desktop\Admin\Email_Eport-SC\ExportCheckoutBlazor\Exports\CheckoutHist_20250516_133209.xlsx
+2025-05-16 13:32:09 - Export completed successfully.
+2025-05-21 11:18:43 - Starting export for last 1 days.
+2025-05-21 11:18:43 - Building SQL for columns: id, QRCODE, [DESC], QTY, BIN, DEPT, USER_NAME, checkout_time
+2025-05-21 11:18:44 - Retrieved 14 rows with 8 columns.
+2025-05-21 11:18:47 - Excel saved: C:\Users\ssingh\Desktop\Admin\Email_Eport-SC\ExportCheckoutBlazor\Exports\CheckoutHist_20250521_111844.xlsx
+2025-05-21 11:18:47 - Sending email to: ssingh@ntnanderson.com
+2025-05-21 11:18:47 - Email sent.
+2025-05-21 11:18:47 - Deleted file: C:\Users\ssingh\Desktop\Admin\Email_Eport-SC\ExportCheckoutBlazor\Exports\CheckoutHist_20250521_111844.xlsx
+2025-05-21 11:18:47 - Export completed successfully.
+2025-05-21 11:48:49 - Starting export for last 1 days.
+2025-05-21 11:48:49 - Building SQL for columns: id, QRCODE, [DESC], QTY, BIN, DEPT, USER_NAME, checkout_time
+2025-05-21 11:48:50 - Retrieved 14 rows with 8 columns.
+2025-05-21 11:48:51 - ERROR: Unable to cast object of type 'System.String' to type 'System.Int32'.
+   at System.Data.DataRowExtensions.UnboxT`1.NonNullableField(Object value)
+   at System.Data.DataRowExtensions.Field[T](DataRow row, String columnName)
+   at NDAProcesses.Services.ExportService.<>c.<RunExport>b__5_4(DataRow r) in C:\Users\ssingh\Desktop\Admin\Email_Eport-SC\ExportCheckoutBlazor\Services\ExportService.cs:line 83
+   at System.Linq.Enumerable.Sum[TSource,TResult,TAccumulator](IEnumerable`1 source, Func`2 selector)
+   at NDAProcesses.Services.ExportService.RunExport(Int32 daysBack, List`1 toAddresses, List`1 selectedCols) in C:\Users\ssingh\Desktop\Admin\Email_Eport-SC\ExportCheckoutBlazor\Services\ExportService.cs:line 83
+2025-05-21 11:50:42 - Starting export for last 1 days.
+2025-05-21 11:50:42 - Building SQL for columns: id, QRCODE, [DESC], QTY, BIN, DEPT, USER_NAME, checkout_time
+2025-05-21 11:50:42 - Retrieved 14 rows with 8 columns.
+2025-05-21 11:50:45 - Excel saved: C:\Users\ssingh\Desktop\Admin\Email_Eport-SC\ExportCheckoutBlazor\Exports\CheckoutHist_20250521_115042.xlsx
+2025-05-21 11:50:45 - Sending email to: ssingh@ntnanderson.com
+2025-05-21 11:50:45 - Email sent.
+2025-05-21 11:50:45 - Deleted file: C:\Users\ssingh\Desktop\Admin\Email_Eport-SC\ExportCheckoutBlazor\Exports\CheckoutHist_20250521_115042.xlsx
+2025-05-21 11:50:45 - Export completed successfully.
+2025-05-21 12:06:03 - Starting export for last 1 days.
+2025-05-21 12:06:03 - Building SQL for columns: id, QRCODE, [DESC], QTY, BIN, DEPT, USER_NAME, checkout_time
+2025-05-21 12:06:03 - Retrieved 21 rows with 8 columns.
+2025-05-21 12:06:07 - Excel saved: C:\Users\ssingh\Desktop\Admin\Email_Eport-SC\ExportCheckoutBlazor\Exports\CheckoutHist_20250521_120603.xlsx
+2025-05-21 12:06:07 - Sending email to: ssingh@ntnamderson.com
+2025-05-21 12:06:07 - Email sent.
+2025-05-21 12:06:07 - Deleted file: C:\Users\ssingh\Desktop\Admin\Email_Eport-SC\ExportCheckoutBlazor\Exports\CheckoutHist_20250521_120603.xlsx
+2025-05-21 12:06:07 - Export completed successfully.
+2025-05-21 12:09:12 - Starting export for last 1 days.
+2025-05-21 12:09:12 - Building SQL for columns: id, QRCODE, [DESC], QTY, BIN, DEPT, USER_NAME, checkout_time
+2025-05-21 12:09:12 - Retrieved 22 rows with 8 columns.
+2025-05-21 12:09:12 - Excel saved: C:\Users\ssingh\Desktop\Admin\Email_Eport-SC\ExportCheckoutBlazor\Exports\CheckoutHist_20250521_120912.xlsx
+2025-05-21 12:09:12 - Sending email to: ssingh@ntnamderson.com
+2025-05-21 12:09:12 - Email sent.
+2025-05-21 12:09:12 - Deleted file: C:\Users\ssingh\Desktop\Admin\Email_Eport-SC\ExportCheckoutBlazor\Exports\CheckoutHist_20250521_120912.xlsx
+2025-05-21 12:09:12 - Export completed successfully.
+2025-05-21 12:09:20 - Starting export for last 10 days.
+2025-05-21 12:09:20 - Building SQL for columns: id, QRCODE, [DESC], QTY, BIN, DEPT, USER_NAME, checkout_time
+2025-05-21 12:09:20 - Retrieved 83 rows with 8 columns.
+2025-05-21 12:09:20 - Excel saved: C:\Users\ssingh\Desktop\Admin\Email_Eport-SC\ExportCheckoutBlazor\Exports\CheckoutHist_20250521_120920.xlsx
+2025-05-21 12:09:20 - Sending email to: ssingh@ntnamderson.com
+2025-05-21 12:09:20 - Email sent.
+2025-05-21 12:09:20 - Deleted file: C:\Users\ssingh\Desktop\Admin\Email_Eport-SC\ExportCheckoutBlazor\Exports\CheckoutHist_20250521_120920.xlsx
+2025-05-21 12:09:20 - Export completed successfully.
+2025-05-21 12:58:01 - Starting export for last 1 days.
+2025-05-21 12:58:01 - Building SQL for columns: id, QRCODE, [DESC], QTY, BIN, DEPT, USER_NAME, checkout_time
+2025-05-21 12:58:02 - Retrieved 21 rows with 8 columns.
+2025-05-21 12:58:02 - Dept breakdown computed: 4 departments
+2025-05-21 12:58:05 - Excel saved: C:\Users\ssingh\Desktop\Admin\Email_Eport-SC\ExportCheckoutBlazor\Exports\CheckoutHist_20250521_125802.xlsx
+2025-05-21 12:58:05 - SMTP host: 10.201.50.5, port: 25
+2025-05-21 12:58:05 - From: ToolCribReport@ntnanderson.com
+2025-05-21 12:58:05 - To addresses: ssingh@ntnanderson.com
+2025-05-21 12:58:05 - Email sent successfully.
+2025-05-21 12:58:06 - Deleted file: C:\Users\ssingh\Desktop\Admin\Email_Eport-SC\ExportCheckoutBlazor\Exports\CheckoutHist_20250521_125802.xlsx
+2025-05-21 12:58:06 - Export completed successfully.
+2025-05-28 06:51:42 - Starting export for last 1 days.
+2025-05-28 06:51:42 - Building SQL for columns: id, QRCODE, [DESC], QTY, BIN, DEPT, USER_NAME, checkout_time
+2025-05-28 06:51:43 - Retrieved 24 rows with 8 columns.
+2025-05-28 06:51:47 - Excel saved: C:\Users\ssingh\Desktop\Admin\Email_Eport-SC\ExportCheckoutBlazor\Exports\CheckoutHist_20250528_065143.xlsx
+2025-05-28 06:51:47 - Sending email to: ssingh@ntnanderson.com
+2025-05-28 06:51:47 - Email sent.
+2025-05-28 06:51:47 - Deleted file: C:\Users\ssingh\Desktop\Admin\Email_Eport-SC\ExportCheckoutBlazor\Exports\CheckoutHist_20250528_065143.xlsx
+2025-05-28 06:51:47 - Export completed successfully.
