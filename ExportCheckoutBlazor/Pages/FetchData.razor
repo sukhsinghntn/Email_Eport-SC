@@ -3,10 +3,12 @@
 @using System.Linq
 @using System.Net.Mail
 @using System.Globalization
+@using System.IO
 @using NDAProcesses.Services
 @using Microsoft.AspNetCore.Components.Forms
 @inject ExportService ExportSvc
 @inject SettingsService SettingsSvc
+@inject IWebHostEnvironment Env
 
 <style>
     /* Dark theme background */
@@ -69,6 +71,10 @@
         color: #a3be8c;
     }
 
+    .log-panel h4 {
+        color: #d08770;
+    }
+
     /* Form labels and text */
     .form-label, .form-text {
         color: #d8dee9;
@@ -107,6 +113,9 @@
         </button>
         <button class="btn btn-success open-btn" @onclick="() => ShowExportModal = true">
             📤 Custom Report
+        </button>
+        <button class="btn btn-secondary open-btn" @onclick="OpenLogModal">
+            📝 View Logs
         </button>
     </div>
 
@@ -263,10 +272,32 @@
 
 </div>
 
+@if (ShowLogModal)
+{
+    <div class="modal-overlay">
+        <div class="modal-content log-panel">
+            <button class="modal-close" @onclick="() => ShowLogModal = false">×</button>
+            <h4>Export Log</h4>
+            <input class="form-control mb-2" placeholder="Search..." @bind="LogFilter" />
+            <pre style="white-space: pre-wrap; max-height:400px; overflow:auto;">
+@foreach (var line in FilteredLogLines())
+{
+    @line
+    <br />
+}
+            </pre>
+        </div>
+    </div>
+}
+
 @code {
     // Modal toggles
     bool ShowSettingsModal;
     bool ShowExportModal;
+    bool ShowLogModal;
+
+    string[] LogLines = Array.Empty<string>();
+    string LogFilter = string.Empty;
 
     // ── Export UI state ─────────────────────────────────────────────────────────
     List<string> PresetEmailOptions { get; set; } = new()
@@ -421,4 +452,17 @@
         SettingsSvc.Save();
         ScheduleMessage = "✅ Settings saved!";
     }
+
+    void OpenLogModal()
+    {
+        var logPath = Path.Combine(Env.ContentRootPath, "Logs", "ExportCheckoutReport.log");
+        LogLines = File.Exists(logPath) ? File.ReadAllLines(logPath) : Array.Empty<string>();
+        LogFilter = string.Empty;
+        ShowLogModal = true;
+    }
+
+    IEnumerable<string> FilteredLogLines() =>
+        string.IsNullOrWhiteSpace(LogFilter)
+            ? LogLines
+            : LogLines.Where(l => l.Contains(LogFilter, StringComparison.OrdinalIgnoreCase));
 }
