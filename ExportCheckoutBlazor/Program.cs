@@ -41,6 +41,15 @@ app.UseStaticFiles(new StaticFileOptions
     RequestPath  = "/exports"
 });
 
+// expose the "Logs" folder at "/logs"
+var logsDir = Path.Combine(app.Environment.ContentRootPath, "Logs");
+Directory.CreateDirectory(logsDir);
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(logsDir),
+    RequestPath  = "/logs"
+});
+
 app.UseRouting();
 app.MapBlazorHub();
 app.MapFallbackToPage("/_Host");
