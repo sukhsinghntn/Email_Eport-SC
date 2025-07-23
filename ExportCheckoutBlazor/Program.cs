@@ -7,6 +7,13 @@ using System.IO;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Extend server timeouts so the Blazor Server app does not disconnect
+builder.WebHost.ConfigureKestrel(opt =>
+{
+    opt.Limits.KeepAliveTimeout = TimeSpan.FromDays(7);
+    opt.Limits.RequestHeadersTimeout = TimeSpan.FromDays(7);
+});
+
 // 1) Load configuration first so SettingsService picks up the correct values
 builder.Configuration
     .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
@@ -21,7 +28,12 @@ builder.Services.AddScoped<ExportService>();
 
 // 4) Blazor Server setup
 builder.Services.AddRazorPages();
-builder.Services.AddServerSideBlazor();
+builder.Services.AddServerSideBlazor()
+    .AddCircuitOptions(opts =>
+    {
+        // Hold disconnected circuits for a long time so the app never times out
+        opts.DisconnectedCircuitRetentionPeriod = TimeSpan.FromDays(7);
+    });
 
 var app = builder.Build();
 
